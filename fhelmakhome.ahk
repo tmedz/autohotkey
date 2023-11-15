@@ -19,6 +19,7 @@ F12::
     Suspend, Toggle
     Return
 
+
 ^!d::Run "D:\Downloads" ; ctrl+shift+d
 ^!SC032::Run, "C:\Program Files\Calc\calc1.exe"
 
@@ -140,6 +141,12 @@ capsOnDisplay(timeOn) {
         }
     }
 }
+capsOn() {
+        SetCapsLockState, On
+        Screen_Y = % A_ScreenHeight-100
+        Progress,y%Screen_Y% B W75 H17 ZH0 FS6 WS8000 CT800080, CAPS LOCK
+}
+
 capsOffDisplay() {
     SetCapsLockState, Off
     Progress, off
@@ -245,10 +252,11 @@ return
       SC009::F8
       SC00a::F9
       SC00b::F10
-      SC03A::capsOnDisplay(60000)
+      SC03A::capsOn()
       SC030::up
       SC035::down
       return
+
 
 #If
 class Highlight {
@@ -366,6 +374,6 @@ return
     SC01A::F11
     SC01B::F12
     SC02B::Send #{PrintScreen}
-    SC03A::capsOnDisplay(60000) ;caps
+    SC03A::send ^{Backspace}
     SC15D::capsOnDisplay(60000) ;rshift
     return
