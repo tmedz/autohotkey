@@ -19,7 +19,6 @@ F12::
     Suspend, Toggle
     Return
 
-
 ^!d::Run "D:\Downloads" ; ctrl+shift+d
 ^!SC032::Run, "C:\Program Files\Calc\calc1.exe"
 
@@ -250,7 +249,6 @@ return
       SC030::up
       SC035::down
       return
-
 
 #If
 class Highlight {
